@@ -26,3 +26,4 @@ C:\Users\thummala\Desktop\Sorting\SortingDeckOfCards\obj\Debug\net5.0\SortingDec
 C:\Users\thummala\Desktop\Sorting\SortingDeckOfCards\obj\Debug\net5.0\ref\SortingDeckOfCards.dll
 C:\Users\thummala\Desktop\Sorting\SortingDeckOfCards\obj\Debug\net5.0\SortingDeckOfCards.pdb
 C:\Users\thummala\Desktop\Sorting\SortingDeckOfCards\obj\Debug\net5.0\SortingDeckOfCards.genruntimeconfig.cache
+C:\Users\thummala\Desktop\Sorting\SortingDeckOfCards\obj\Debug\net5.0\SortingDeckOfCards.csprojAssemblyReference.cache

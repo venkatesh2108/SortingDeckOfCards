@@ -4,18 +4,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 
 namespace SortingDeckOfCards.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowOrigin")]
     public class SortingController : ControllerBase
     {
-        [HttpPost]
-        public List<string> DoSorting([FromBody]List<string> cardsList)
+        [HttpGet]
+        
+        public string DoSorting(string cards)
         {
             try
             {
+                var cardsList = cards.Split(',').ToList();
                 for (int j = 0; j <= cardsList.Count - 2; j++)
                 {
                     for (int i = 0; i <= cardsList.Count - 2; i++)
@@ -47,8 +51,8 @@ namespace SortingDeckOfCards.Controllers
 
                         if (s1 != s2)
                         {
-                            var d = (int)(Suit)Enum.Parse(typeof(Suit), s1);
-                            var e = (int)(Suit)Enum.Parse(typeof(Suit), s2);
+                            var d = (int)(Suit)Enum.Parse(typeof(Suit), s1.ToLower());
+                            var e = (int)(Suit)Enum.Parse(typeof(Suit), s2.ToLower());
 
                             if (d > e)
                             {
@@ -77,8 +81,13 @@ namespace SortingDeckOfCards.Controllers
                     }
                 }
 
+                var output = string.Empty;
+                foreach (var card in cardsList)
+                {
+                    output = output + card +",";
+                }
 
-                return cardsList;
+                return output;
             }
             catch (Exception e)
             {

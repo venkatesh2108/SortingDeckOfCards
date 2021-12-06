@@ -28,6 +28,10 @@ namespace SortingDeckOfCards
         {
 
             services.AddControllers();
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SortingDeckOfCards", Version = "v1" });
@@ -43,11 +47,11 @@ namespace SortingDeckOfCards
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SortingDeckOfCards v1"));
             }
-
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
