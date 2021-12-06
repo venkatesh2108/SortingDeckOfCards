@@ -87,6 +87,7 @@ namespace SortingDeckOfCards.Controllers
                     output = output + card +",";
                 }
 
+                output = output.Remove(output.Length - 1);
                 return output;
             }
             catch (Exception e)

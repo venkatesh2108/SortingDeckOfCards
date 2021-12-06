@@ -34,7 +34,17 @@ namespace SortingDeckOfCards
             });
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SortingDeckOfCards", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "SortingDeckOfCards", Version = "v1",
+                    Description = "Please send cards parameter as string format (ex:- 10h,9s,Kh,9c,5d)",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Venkatesh",
+                        Email = "venkathummala@gmail.com",
+                       
+                    }
+                });
             });
         }
 
@@ -47,7 +57,8 @@ namespace SortingDeckOfCards
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SortingDeckOfCards v1"));
             }
-            
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SortingDeckOfCards v1"));
             app.UseHttpsRedirection();
 
             app.UseRouting();
